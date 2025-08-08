@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank you!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #9DDE8B;
+            color: #8B322C;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .popup-content {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <u>
+                <h2>Health is not valued till sickness comes</h2>
+            </u>
+            <h2>Thank You!!!..</h2>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var popup = document.getElementById('popup');
+            popup.style.display = 'block';
+        });
+
+    </script>
+</body>
+
+</html>

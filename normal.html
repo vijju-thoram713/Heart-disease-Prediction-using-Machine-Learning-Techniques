@@ -1,0 +1,71 @@
+# Importing Libraries and Dataset
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+
+from sklearn import metrics
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import classification_report,accuracy_score,roc_curve,confusion_matrix
+# Load the training dataset
+df=pd.read_csv('heart.csv')
+df
+df['target'].value_counts()
+df.isnull().sum()
+df.dtypes
+x=df.drop(['target'],axis=1)
+y=df['target']
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2)
+from sklearn.linear_model import LogisticRegression
+lr=LogisticRegression()
+lr.fit(x_train,y_train)
+y_pred=lr.predict(x_test)
+from sklearn.metrics import accuracy_score
+a1=accuracy_score(y_test,y_pred)
+a1
+df[df['target']==1]
+x.keys()
+import pickle
+# open a file, wxhere you ant to store the data
+file = open('heart_lr', 'wb')
+
+# dump information to that file
+pickle.dump(lr, file)
+lr.predict([x.iloc[4]])
+from sklearn.tree import DecisionTreeClassifier
+tree = DecisionTreeClassifier()
+tree.fit(x_train,y_train)
+y_pred=tree.predict(x_test)
+a2=accuracy_score(y_test,y_pred)
+a2
+import pickle
+# open a file, wxhere you ant to store the data
+file = open('heart_dt', 'wb')
+
+# dump information to that file
+pickle.dump(tree, file)
+import pickle
+# open a file, wxhere you ant to store the data
+file = open('heart_dt', 'wb')
+
+# dump information to that file
+pickle.dump(tree, file)
+tree.predict([x.iloc[5]])
+from sklearn.naive_bayes import GaussianNB
+nb = GaussianNB()
+nb.fit(x_train,y_train)
+y_pred=nb.predict(x_test)
+a3=accuracy_score(y_test,y_pred)
+a3
+from sklearn.svm import SVC
+sv = SVC()
+sv.fit(x_train,y_train)
+y_pred=sv.predict(x_test)
+a4=accuracy_score(y_test,y_pred)
+a4
+data = pd.DataFrame({'Algorithm':['Logistic Regression','Decision Tree','Naive Bayes','SVC'],'Accuracy':[a1,a2,a3,a4]})
+data 
+sns.barplot(x='Algorithm',y='Accuracy',data=data)
+plt.xticks(rotation=90)

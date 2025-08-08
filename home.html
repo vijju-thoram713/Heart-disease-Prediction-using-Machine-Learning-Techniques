@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home3.css') }}">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>HEART DISEASE PREDICTION USING MACHINE LEARNING TECHNIQUES</h1>
+
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="{{ url_for('login') }}">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+
+        <section id="home" class="same-style">
+            <div id="itsImg">
+                <img src="../static/Heart-Beat.gif" alt="Heart Beat">
+            </div>
+            <div class="p-style">
+                <h2>The greatest wealth is health.</h2>
+                <p>
+                    Health is the foundation of a vibrant life, allowing us to chase our passions with energy and
+                    enthusiasm. It’s more than just being disease-free; it’s about achieving a balance of mind, body,
+                    and spirit. Lifelong health requires ongoing self-care and valuing our well-being.
+                </p>
+            </div>
+
+
+
+        </section>
+
+
+        <section id="about" class="same-style">
+
+            <div class="p-style">
+                <h2>About Us</h2>
+
+                <p>
+                    Our project uses machine learning to analyze patient data and predict heart disease risk, enabling
+                    early detection and prompt treatment for those at risk.
+                </p>
+            </div>
+            <div class="styleForWokingImg">
+                <img src="../static/gif-unscreen.gif" alt="working">
+            </div>
+
+        </section>
+
+
+        <footer>
+            <h1>Copyright &reg;2024 abcart Health Care</h1>
+            <p>
+            <h3><b>All rights Reserved Developed and Managed by abcart Health Care Org.</b></h3>
+            </p>
+        </footer>
+    </main>
+</body>
+
+</html>

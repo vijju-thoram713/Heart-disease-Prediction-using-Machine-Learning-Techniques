@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{{ url_for("static", filename="hb24.png") }}');
+            color: #8B322C;
+        }
+
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #cbf0cd;
+
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container input[type="text"],
+        .container input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #041016;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .watermark {
+            position: fixed;
+            color: rgba(0, 103, 105, 0.7);
+            font-size: 24px;
+            font-weight: bold;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return validateCredentials()">
+            <input type="text" id="username" name="username" placeholder="Email" required><br>
+            <input type="password" id="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    <div class="watermark top-left">Heart Disease Prediction</div>
+
+    <script>
+        function validateCredentials() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Regular expression pattern for email validation
+            var emailPattern = /^[a-zA-Z]{1,10}\d{2}@(gmail|yahoo)\.com$/;
+            var passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+\[\]{}|;:'",.<>?/]).{8,20}$/;
+
+            // Check if username matches the pattern
+            if (!emailPattern.test(username)) {
+                alert("Invalid Email Format!");
+                return false; // Prevent form submission
+            }
+
+
+
+            if (!passwordPattern.test(password)) {
+                alert("Invalid Password Format!");
+                return false;
+            }
+            // If both username and password are valid, allow login
+            alert("Login Successful!");
+            window.location.href = "index"; // Redirect to index.html
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+
+</html>
